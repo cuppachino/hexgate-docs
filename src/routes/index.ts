@@ -1,9 +1,14 @@
 import { Router } from "@tanstack/react-router";
 import { rootRoute } from "./root";
 import { homeRoute } from "./home";
-import { aboutRoute } from "./about";
+import { apiRoute } from "./api";
+import { notFoundRoute } from "./not-found";
 
-export const routeTree = rootRoute.addChildren([homeRoute, aboutRoute]);
+export const routeTree = rootRoute.addChildren([
+  homeRoute,
+  apiRoute,
+  notFoundRoute,
+]);
 
 export const router = new Router({ routeTree });
 
@@ -12,3 +17,26 @@ declare module "@tanstack/react-router" {
     router: typeof router;
   }
 }
+
+import { buttonVariants } from "@/components/ui/button";
+import { RootRoute, type MakeLinkPropsOptions } from "@tanstack/react-router";
+import type { VariantProps } from "class-variance-authority";
+
+type MakeLinkPropsOptionsWithExternal<T> = T extends {
+  to?: infer U;
+  external?: true;
+}
+  ?
+      | T
+      | ({
+          to: string;
+          external: true;
+        } & Omit<T, "to">)
+  : T;
+
+export type LinkProps = MakeLinkPropsOptionsWithExternal<
+  MakeLinkPropsOptions<RootRoute> & {
+    external?: true;
+  }
+> &
+  VariantProps<typeof buttonVariants>;

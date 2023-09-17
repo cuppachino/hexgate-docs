@@ -60,13 +60,13 @@ export function ThemeProvider({
     cycleTheme: () => {
       switch (theme) {
         case "light":
-          setTheme("system");
+          value.setTheme("system");
           break;
         case "system":
-          setTheme("dark");
+          value.setTheme("dark");
           break;
         case "dark":
-          setTheme("light");
+          value.setTheme("light");
           break;
       }
     },
