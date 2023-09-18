@@ -19,6 +19,15 @@ export default {
     //   },
     // },
     extend: {
+      typography: {
+        DEFAULT: {
+          pre: false,
+          code: false,
+          "pre code": false,
+          "code::before": false,
+          "code::after": false,
+        },
+      },
       fontFamily: {
         sans: ["Inter", ...defaultTheme.fontFamily.sans],
         code: ["JetBrains Mono", "monospace"],

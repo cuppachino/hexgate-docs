@@ -9,12 +9,14 @@ type ThemeProviderProps = {
 };
 
 type ThemeProviderState = {
+  prefersDark: boolean;
   theme: Theme;
   setTheme: (theme: Theme) => void;
   cycleTheme: () => void;
 };
 
 const initialState: ThemeProviderState = {
+  prefersDark: window.matchMedia("(prefers-color-scheme: dark)").matches,
   theme: "system",
   setTheme: () => null,
   cycleTheme: () => null,
@@ -32,6 +34,7 @@ export function ThemeProvider({
   const [theme, setTheme] = useState<Theme>(
     () => (localStorage.getItem(storageKey) as Theme) || defaultTheme
   );
+  const [prefersDark, setPrefersDark] = useState<boolean>(false);
 
   useEffect(() => {
     const root = window.document.documentElement;
@@ -39,12 +42,13 @@ export function ThemeProvider({
     root.classList.remove("light", "dark");
 
     if (theme === "system") {
-      const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
-        .matches
-        ? "dark"
-        : "light";
+      const prefersDark = window.matchMedia(
+        "(prefers-color-scheme: dark)"
+      ).matches;
+      const systemTheme = prefersDark ? "dark" : "light";
 
       root.classList.add(systemTheme);
+      setPrefersDark(prefersDark);
       return;
     }
 
@@ -53,6 +57,7 @@ export function ThemeProvider({
 
   const value = {
     theme,
+    prefersDark,
     setTheme: (theme: Theme) => {
       localStorage.setItem(storageKey, theme);
       setTheme(theme);

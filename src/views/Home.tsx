@@ -38,7 +38,6 @@ export function Home() {
             , packed with features that make it easy to build companion apps.
           </div>
           <div className="flex pt-4 gap-4">
-            {/* @ts-expect-error "/docs" no implemented */}
             <Link
               variant={"default"}
               size="lg"
@@ -47,7 +46,7 @@ export function Home() {
             >
               <span>Get Started</span>
               <div
-                className="absolute inset-0.5 dark:-inset-0.5 rounded-lg -z-10 blur-lg bg-gradient-to-br 
+                className="absolute -inset-0.5 dark:-inset-0.5 rounded-lg -z-10 blur-lg bg-gradient-to-br 
                         from-indigo-600 via-indigo-500 to-pink-600
                         dark:from-blue-600 dark:to-amber-500
                           opacity-0 group-hover:opacity-50 dark:group-hover:opacity-90

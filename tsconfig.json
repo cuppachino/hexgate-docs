@@ -23,7 +23,9 @@
     /* Other */
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@": ["./src/index.ts"],
+      "@/*": ["./src/*"],
+      "@docs/*": ["./docs/*"]
     }
   },
   "include": ["src"],

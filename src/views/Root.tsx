@@ -5,8 +5,8 @@ import Github from "@/components/icon/github";
 
 export function Root() {
   return (
-    <div className="absolute inset-0 overflow-clip">
-      <header className="border-b p-2 gap-2 flex items-center justify-start h-14">
+    <div className="absolute inset-0 overflow-clip pt-14">
+      <header className="border-b p-2 gap-2 flex items-center justify-start h-14 fixed top-0 inset-x-0 w-full">
         <Link to="/" variant={"ghost"} className="font-light leading-2">
           Hexgate
         </Link>
@@ -14,7 +14,6 @@ export function Root() {
           <Link to="/api" variant={"ghost"} className="font-light leading-2">
             API
           </Link>
-          {/* @ts-expect-error // ! not implemented */}
           <Link to="/docs" variant={"ghost"} className="font-light leading-2">
             Docs
           </Link>
@@ -31,7 +30,9 @@ export function Root() {
           <Toggle />
         </div>
       </header>
-      <Outlet />
+      <div className="overflow-auto h-full w-full">
+        <Outlet />
+      </div>
     </div>
   );
 }
