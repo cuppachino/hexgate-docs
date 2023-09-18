@@ -1,4 +1,4 @@
-import { Link } from "@/components/Link";
+import { Link } from "@/components/link";
 import { Toggle } from "@/components/theme/toggle";
 import { Outlet } from "@tanstack/react-router";
 import Github from "@/components/icon/github";
@@ -7,15 +7,15 @@ export function Root() {
   return (
     <div className="absolute inset-0 overflow-clip">
       <header className="border-b p-2 gap-2 flex items-center justify-start h-14">
-        <Link to="/" variant={"ghost"}>
+        <Link to="/" variant={"ghost"} className="font-light leading-2">
           Hexgate
         </Link>
         <div className="flex w-full h-full items-center justify-end gap-2">
-          <Link to="/api" variant={"ghost"}>
+          <Link to="/api" variant={"ghost"} className="font-light leading-2">
             API
           </Link>
           {/* @ts-expect-error // ! not implemented */}
-          <Link to="/docs" variant={"ghost"}>
+          <Link to="/docs" variant={"ghost"} className="font-light leading-2">
             Docs
           </Link>
 

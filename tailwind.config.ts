@@ -1,5 +1,5 @@
-// eslint-disable-next-line no-undef
-const defaultTheme = require("tailwindcss/defaultTheme");
+/* eslint-disable no-undef */
+import defaultTheme from "tailwindcss/defaultTheme";
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -36,6 +36,9 @@ export default {
           800: "#454545",
           900: "#3d3d3d",
           950: "#262626",
+        },
+        vibe: {
+          purple: "#6320ee",
         },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -78,5 +81,5 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/typography"), require("tailwindcss-animate")],
 };

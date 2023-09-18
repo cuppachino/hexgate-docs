@@ -6,12 +6,14 @@ import { buttonVariants } from "./ui/button";
 export function Link({
   to,
   className,
+  activeProps,
   children,
   size = "sm",
   variant = "outline",
   external,
   ...props
 }: LinkProps) {
+  const buttonClasses = buttonVariants({ variant, size, className });
   return (
     <RouterLink
       {...(external
@@ -19,21 +21,20 @@ export function Link({
             target: "_blank",
             onClick(e) {
               e.preventDefault();
-              window.open(to, "_blank");
+              window.open(to, "_blank", "noopener noreferrer");
             },
           }
         : { to })}
       {...props}
       activeProps={{
+        ...activeProps,
         className: cn(
-          buttonVariants({ variant, size, className }),
-          "font-light leading-2"
+          buttonClasses,
+          activeProps?.["className" as keyof typeof activeProps],
+          "select-none"
         ),
       }}
-      className={cn(
-        buttonVariants({ variant, size, className }),
-        "font-light leading-2"
-      )}
+      className={cn(buttonClasses, className, "select-none")}
     >
       {children}
     </RouterLink>
