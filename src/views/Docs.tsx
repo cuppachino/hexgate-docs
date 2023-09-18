@@ -41,15 +41,8 @@ export function Docs() {
           todo
         </div>
         <Markdown
-          className="w-full prose-lg prose-pre:bg-transparent prose-pre:p-0"
+          className="w-full max-w-sm sm:max-w-xl md:max-w-2xl lg:max-w-4xl xl:max-w-5xl prose-pre:bg-transparent prose-pre:p-0"
           remarkPlugins={[remarkGfm]}
-          //   className="prose
-          // prose-h1:text-6xl
-          // prose-h2:text-4xl prose-h2:text-foreground
-          // prose-h3:text-3xl prose-h3:text-secondary-foreground
-          // prose-h4:text-2xl prose-h4:text-muted-foreground/90
-          // text-foreground
-          // prose-a:text-foreground prose-a:text-indigo-400"
           components={{
             code({ node, inline, className, children, ...props }) {
               const match = /language-(\w+)/.exec(className || "");
