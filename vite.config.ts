@@ -9,9 +9,9 @@ export default defineConfig({
   plugins: [react()],
   assetsInclude: ["**/*.md"],
   resolve: {
-    alias: {
-      "@": resolve(__dirname, "./src"),
-      "@docs": resolve(__dirname, "./docs"),
-    },
+    alias: [
+      { find: "@", replacement: resolve(__dirname, "src") },
+      { find: "@docs", replacement: resolve(__dirname, "docs") },
+    ],
   },
 });
