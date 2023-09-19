@@ -18,7 +18,6 @@ export default {
       fontFamily: {
         sans: ["Inter", ...defaultTheme.fontFamily.sans],
         code: ["JetBrains Mono", "monospace"],
-        cascadia: ["Cascadia Code", "Monaco", "monospace"],
       },
       colors: {
         dove: {

@@ -9,8 +9,7 @@ export function Root() {
       <header className="border-b h-14 glass fixed top-0 inset-x-0 z-10 overflow-clip">
         <div
           className="p-2 gap-2 w-full flex items-center justify-start mx-auto max-w-screen-2xl
-          after:bg-background after:aspect-square after:h-32 after:absolute after:-right-16 after:-z-10 after:blur-xl after:pointer-events-none
-        "
+          "
         >
           <Link
             to="/"
