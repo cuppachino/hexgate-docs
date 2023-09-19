@@ -95,7 +95,7 @@
 }
 
 .graph-paper::before {
-  mask-image: radial-gradient(transparent, white);
+  mask-image: radial-gradient(transparent 35%, white);
   mask-size: contain;
   mask-repeat: no-repeat;
   mask-mode: alpha;
@@ -109,7 +109,7 @@
       var(--background-graph-line) 1px,
       transparent 1px
     );
-  background-position: 50% 0, 0 0%;
+  background-position: 50% 0, 0 10%;
   background-size: 64px 64px;
   z-index: 20;
   content: "";
@@ -123,6 +123,7 @@
 
 .dark .graph-paper::before {
   mask-image: radial-gradient(transparent 35%, white 200%);
+  background-size: 80px 80px;
 }
 
 @keyframes wobble {
