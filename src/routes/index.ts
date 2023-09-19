@@ -19,7 +19,7 @@ declare module "@tanstack/react-router" {
   }
 }
 
-import { buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "../components/ui/button";
 import { RootRoute, type MakeLinkPropsOptions } from "@tanstack/react-router";
 import type { VariantProps } from "class-variance-authority";
 import { docsRoute } from "./docs";

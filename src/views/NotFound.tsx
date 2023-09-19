@@ -1,6 +1,6 @@
-import { Link } from "@/components/link";
-import { buttonVariants } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+import { Link } from "../components/link";
+import { buttonVariants } from "../components/ui/button";
+import { cn } from "../lib/utils";
 import { Outlet } from "@tanstack/react-router";
 
 export function NotFound() {

@@ -1,7 +1,7 @@
-import { Link } from "@/components/link";
-import { Toggle } from "@/components/theme/toggle";
+import { Link } from "../components/link";
+import { Toggle } from "../components/theme/toggle";
 import { Outlet } from "@tanstack/react-router";
-import Github from "@/components/icon/github";
+import Github from "../components/icon/github";
 
 export function Root() {
   return (

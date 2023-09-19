@@ -1,13 +1,13 @@
 import markdown from "@docs/introduction.md?raw";
 
-import dark from "@/style/dark-theme";
-import light from "@/style/light-bold";
+import dark from "../style/dark-theme";
+import light from "../style/light-bold";
 import Markdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import remarkGfm from "remark-gfm";
 
-import { useTheme } from "@/components/theme/hook";
-import { cn } from "@/lib/utils";
+import { useTheme } from "../components/theme/hook";
+import { cn } from "../lib/utils";
 import { useLayoutEffect, useState } from "react";
 
 export function Docs() {

@@ -1,5 +1,5 @@
-import { TooltipCard } from "@/components/tooltip-card";
-import { Link } from "@/components/link";
+import { TooltipCard } from "../components/tooltip-card";
+import { Link } from "../components/link";
 
 export function Home() {
   return (
