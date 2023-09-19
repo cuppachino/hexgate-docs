@@ -94,7 +94,11 @@
   }
 }
 
-.graph-paper {
+.graph-paper::before {
+  mask-image: radial-gradient(transparent, white);
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-mode: alpha;
   background-image: linear-gradient(
       to right,
       var(--background-graph-line) 1px,
@@ -107,12 +111,13 @@
     );
   background-position: 50% 0, 0 0%;
   background-size: 64px 64px;
-  @apply after:absolute after:h-3/4 after:w-2/3 after:place-self-center after:m-auto after:bg-background after:rounded-full after:blur-2xl after:dark:hidden;
-}
-.dark .graph-paper {
-  background-image: unset;
-  background-position: unset;
-  background-size: unset;
+  z-index: 20;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 @keyframes wobble {
