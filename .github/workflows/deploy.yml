@@ -21,8 +21,20 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  # Single deploy job since we're just deploying
+  # Cleanup job to remove old deployments
+  cleanup:
+    runs-on: ubuntu-latest
+    permissions: write-all
+    steps:
+      - name: 🗑 Delete deployment
+        uses: strumwolf/delete-deployment-environment@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          environment: github-pages
+          onlyRemoveDeployments: true
+  # Deploy job
   deploy:
+    needs: cleanup
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
