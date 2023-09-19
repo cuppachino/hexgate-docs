@@ -1,5 +1,5 @@
 import { TooltipCard } from "@/components/tooltip-card";
-import { Link } from "@/components/link";
+import { Link } from "@/components/router-link";
 
 export function Home() {
   return (
