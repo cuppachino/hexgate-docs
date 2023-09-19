@@ -121,6 +121,10 @@
   pointer-events: none;
 }
 
+.dark .graph-paper::before {
+  mask-image: radial-gradient(transparent 35%, white 200%);
+}
+
 @keyframes wobble {
   0% {
     transform: rotate(0deg);
