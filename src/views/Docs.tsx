@@ -48,9 +48,9 @@ export function Docs() {
 
             return !inline && match ? (
               <div>
-                <label className="text-sm text-muted-foreground uppercase border rounded px-1 py-0.5 mx-2">
+                {/* <label className="text-sm text-muted-foreground uppercase border rounded px-1 py-0.5 mx-2">
                   {match[1]}
-                </label>
+                </label> */}
                 <SyntaxHighlighter
                   style={style as any}
                   language={match[1]}
@@ -69,7 +69,7 @@ export function Docs() {
               <code
                 className={cn(
                   className,
-                  "bg-secondary rounded px-1.5 py-0.5 mx-0.5 font-normal font-cascadia"
+                  "bg-secondary rounded px-1.5 py-0.5 mx-0.5 font-normal font-code"
                 )}
                 {...props}
               >
