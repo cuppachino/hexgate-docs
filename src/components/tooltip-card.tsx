@@ -1,6 +1,7 @@
 import { Button } from "./ui/button";
 import { HoverCard, HoverCardTrigger, HoverCardContent } from "./ui/hover-card";
 import { Avatar, AvatarImage, AvatarFallback } from "./ui/avatar";
+import { ClassName } from "@/types";
 
 export type TooltipCardProps = {
   text: string;
