@@ -23,7 +23,6 @@
     /* Other */
     "baseUrl": ".",
     "paths": {
-      "@": ["./src/index.ts"],
       "@/*": ["./src/*"],
       "@docs/*": ["./docs/*"]
     }
