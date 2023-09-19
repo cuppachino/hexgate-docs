@@ -1,6 +1,6 @@
 export default {
   'code[class*="language-"]': {
-    color: "#d7d7d8",
+    color: "#D1D5DB",
     fontFamily:
       '"JetBrains Mono", Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace',
     textAlign: "left",
@@ -38,7 +38,8 @@ export default {
     margin: "0.5em 0",
     padding: "1em",
     overflow: "auto",
-    background: "#09090b",
+    // background: "#1010129f",
+    // background: "#09090b",
   },
   'pre[class*="language-"]::-moz-selection': {
     textShadow: "none",
@@ -97,7 +98,7 @@ export default {
     color: "#ADD7FF",
   },
   string: {
-    color: "#ADD7FF",
+    color: "#e2c29d",
   },
   constant: {
     color: "#E4F0FB",
@@ -130,7 +131,7 @@ export default {
     color: "#91B4D5",
   },
   boolean: {
-    color: "#D0679D",
+    color: "#ea7eb6",
   },
   hexcode: {
     color: "#FFFFFF",

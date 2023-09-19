@@ -1,6 +1,6 @@
 export default {
   'code[class*="language-"]': {
-    color: "#a6accd",
+    color: "#5d5d5f",
     fontFamily: 'Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace',
     textAlign: "left",
     whiteSpace: "pre",
@@ -35,113 +35,76 @@ export default {
     padding: "1em",
     margin: "0.5em 0",
     overflow: "auto",
-    background: "#252b37",
+    background: "#f5f6fa",
   },
   'pre[class*="language-"]::-moz-selection': {
     textShadow: "none",
-    background: "#818cc425",
+    background: "#0065ff3f",
   },
   'pre[class*="language-"] ::-moz-selection': {
     textShadow: "none",
-    background: "#818cc425",
+    background: "#0065ff3f",
   },
   'code[class*="language-"]::-moz-selection': {
     textShadow: "none",
-    background: "#818cc425",
+    background: "#0065ff3f",
   },
   'code[class*="language-"] ::-moz-selection': {
     textShadow: "none",
-    background: "#818cc425",
+    background: "#0065ff3f",
   },
   'pre[class*="language-"]::selection': {
     textShadow: "none",
-    background: "#818cc425",
+    background: "#0065ff3f",
   },
   'pre[class*="language-"] ::selection': {
     textShadow: "none",
-    background: "#818cc425",
+    background: "#0065ff3f",
   },
   'code[class*="language-"]::selection': {
     textShadow: "none",
-    background: "#818cc425",
+    background: "#0065ff3f",
   },
   'code[class*="language-"] ::selection': {
     textShadow: "none",
-    background: "#818cc425",
+    background: "#0065ff3f",
   },
   ':not(pre) > code[class*="language-"]': {
     color: "white",
-    background: "#252b37",
+    background: "#ebeef5",
     padding: "0.1em",
     borderRadius: "0.3em",
     whiteSpace: "normal",
   },
-  comment: {
-    color: "#868CADB0",
-    fontStyle: "italic",
-  },
-  punctuation: {
-    color: "#868CADB0",
-    fontStyle: "italic",
-  },
-  builtin: {
-    color: "#ADD7FF",
+  string: {
+    color: "#437AED",
   },
   variable: {
-    color: "#ADD7FF",
-  },
-  function: {
-    color: "#ADD7FF",
-  },
-  string: {
-    color: "#ADD7FF",
-  },
-  constant: {
-    color: "#E4F0FB",
-  },
-  keyword: {
-    color: "#5DE4C7",
-  },
-  tag: {
-    color: "#5DE4C7",
-  },
-  deleted: {
-    color: "#5DE4C7",
-  },
-  number: {
-    color: "#5DE4C7",
-  },
-  char: {
-    color: "#5DE4C7",
-  },
-  symbol: {
-    color: "#5DE4C7",
-  },
-  inserted: {
-    color: "#5DE4C7",
+    color: "#FA278E",
   },
   operator: {
-    color: "#91B4D5",
+    color: "#F0AA0B",
   },
-  changed: {
-    color: "#91B4D5",
+  builtin: {
+    color: "#C57BDB",
   },
-  boolean: {
-    color: "#D0679D",
+  punctuation: {
+    color: "#C57BDB",
   },
-  hexcode: {
-    color: "#FFFFFF",
+  char: {
+    color: "#888888",
   },
-  "attr-name": {
-    color: "#91B4D5",
-    fontStyle: "italic",
+  url: {
+    color: "#8E8E90",
   },
-  selector: {
-    color: "#91B4D5",
-    fontStyle: "italic",
+  keyword: {
+    color: "#EC0000",
   },
-  regex: {
-    color: "#5FB3A1",
+  inserted: {
+    color: "#44C145",
+  },
+  deleted: {
+    color: "#F14C4C",
   },
   important: {
     fontWeight: "bold",

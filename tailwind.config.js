@@ -11,26 +11,14 @@ export default {
     "./src/**/*.{ts,tsx}",
   ],
   theme: {
-    // container: {
-    //   center: true,
-    //   padding: "2rem",
-    //   screens: {
-    //     "2xl": "1400px",
-    //   },
-    // },
     extend: {
-      typography: {
-        DEFAULT: {
-          pre: false,
-          code: false,
-          "pre code": false,
-          "code::before": false,
-          "code::after": false,
-        },
+      screens: {
+        "8xl": "1440px",
       },
       fontFamily: {
         sans: ["Inter", ...defaultTheme.fontFamily.sans],
         code: ["JetBrains Mono", "monospace"],
+        cascadia: ["Cascadia Code", "Monaco", "monospace"],
       },
       colors: {
         dove: {
@@ -48,6 +36,7 @@ export default {
         },
         vibe: {
           purple: "#6320ee",
+          blue: "#7ea1ff",
         },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

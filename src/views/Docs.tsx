@@ -1,25 +1,14 @@
-import { TooltipCard } from "@/components/tooltip-card";
-import { Link } from "@/components/link";
+import markdown from "@docs/introduction.md?raw";
 
-// import markdown from "@docs/initialize-state-with-props.md?raw";
-import markdown from "@docs/hexgate-readme.md?raw";
-
-import Markdown from "react-markdown";
-import remarkGfm from "remark-gfm";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-// import { materialLight as light } from "react-syntax-highlighter/dist/esm/styles/prism";
 import dark from "@/style/dark-theme";
-// import light from "@/style/dark-theme";
-// import light from "@/style/light-theme";
-import light from "@/style/lightest-theme";
+import light from "@/style/light-bold";
+import Markdown from "react-markdown";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import remarkGfm from "remark-gfm";
 
-// import {
-//   // oneDark as dark,
-//   oneLight as light,
-// } from "react-syntax-highlighter/dist/esm/styles/prism";
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { useTheme } from "@/components/theme/hook";
 import { cn } from "@/lib/utils";
+import { useLayoutEffect, useState } from "react";
 
 export function Docs() {
   const [style, setStyle] = useState(light);
@@ -34,47 +23,59 @@ export function Docs() {
   }, [theme, prefersDark]);
 
   return (
-    <div className="relative p-5">
-      <section className="flex flex-col items-start justify-center gap-2 container w-fit mx-auto">
-        <h1 className="text-7xl pb-4">Markdown</h1>
-        <div className="text-lg text-start text-muted-foreground/90 max-w-sm sm:max-w-lg md:max-w-2xl lg:max-w-3xl text-ellipsis mx-auto pl-0.5">
-          todo
-        </div>
-        <Markdown
-          className="w-full max-w-sm sm:max-w-xl md:max-w-2xl lg:max-w-4xl xl:max-w-5xl prose-pre:bg-transparent prose-pre:p-0"
-          remarkPlugins={[remarkGfm]}
-          components={{
-            code({ node, inline, className, children, ...props }) {
-              const match = /language-(\w+)/.exec(className || "");
+    <div className="w-full h-full relative">
+      <Markdown
+        className="w-full prose dark:prose-invert
+                text-lg text-muted-foreground
+                max-w-screen-2xl
+                prose-pre:bg-transparent prose-pre:p-0
+                prose-code:before:hidden prose-code:after:hidden
+                mx-auto py-10 px-4 md:px-6 lg:p-10
+                "
+        // max-w-md sm:max-w-xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl
+        remarkPlugins={[remarkGfm]}
+        components={{
+          a(props) {
+            return (
+              <a
+                className="text-foreground underline hover:underline hover:text-vibe-blue"
+                {...props}
+              />
+            );
+          },
+          code({ inline, className, children, ...props }) {
+            const match = /language-(\w+)/.exec(className || "");
 
-              return !inline && match ? (
-                <SyntaxHighlighter
-                  style={style as any}
-                  language={match[1]}
-                  PreTag="div"
-                  showLineNumbers={true}
-                  customStyle={{
-                    borderRadius: "0.75em",
-                    border: "1px solid #bbd8e629",
-                    paddingRight: "2em",
-                  }}
-                  children={String(children).replace(/\n$/, "")}
-                  {...props}
-                />
-              ) : (
-                <code
-                  className={cn(className, "text-rose-400 font-code")}
-                  {...props}
-                >
-                  {children}
-                </code>
-              );
-            },
-          }}
-        >
-          {markdown}
-        </Markdown>
-      </section>
+            return !inline && match ? (
+              <SyntaxHighlighter
+                style={style as any}
+                language={match[1]}
+                showLineNumbers={true}
+                customStyle={{
+                  borderRadius: "0.75em",
+                  border: "1px solid #bbd8e629",
+                  width: "100%",
+                }}
+                children={String(children).replace(/\n$/, "")}
+                {...props}
+              />
+            ) : (
+              <code
+                className={cn(
+                  className,
+                  "bg-secondary rounded px-1.5 py-0.5 mx-0.5 font-normal font-cascadia"
+                )}
+                {...props}
+              >
+                {/* remove first and last backticks */}
+                {String(children).replace(/`/g, "")}
+              </code>
+            );
+          },
+        }}
+      >
+        {markdown}
+      </Markdown>
     </div>
   );
 }
