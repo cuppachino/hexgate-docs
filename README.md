@@ -1,27 +1,11 @@
-# React + TypeScript + Vite
+# Hexgate Documentation
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[**Hexgate.app**](https://hexgate.app) hosts documentation for [`hexgate`](https://github.com/cuppachino/hexgate), an LCU API wrapper for League of Legends, available on NPM.
 
-Currently, two official plugins are available:
+- website: [hexgate.app](https://hexgate.app)
+- hexgate: [source](https://github.com/cuppachino/hexgate), [npmjs](https://www.npmjs.com/package/hexgate)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Legal Jibber Jabber
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+> **Hexgate** was created under Riot Games' "Legal Jibber Jabber" policy using assets owned by Riot Games. **Riot Games does <ins>not</ins> endorse or sponsor this project**.
+>
