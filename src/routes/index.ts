@@ -25,7 +25,7 @@ import type { VariantProps } from "class-variance-authority";
 import { docsRoute } from "./docs";
 
 type MakeLinkPropsOptionsWithExternal<T> = T extends {
-  to?: infer U;
+  to?: infer _;
   external?: true;
 }
   ?
