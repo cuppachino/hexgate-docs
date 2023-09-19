@@ -9,6 +9,21 @@ const isDev = process.env.NODE_ENV === "development";
 export default defineConfig({
   plugins: [react(), alias()],
   assetsInclude: ["**/*.md"],
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes("node_modules")) {
+            return id
+              .toString()
+              .split("node_modules/")[1]
+              .split("/")[0]
+              .toString();
+          }
+        },
+      },
+    },
+  },
   resolve: {
     alias: [
       { find: "@", replacement: resolve(__dirname, "src") },

@@ -11,8 +11,8 @@ import { cn } from "../lib/utils";
 import { useLayoutEffect, useState } from "react";
 
 export function Docs() {
-  const [style, setStyle] = useState(light);
   const { theme, prefersDark } = useTheme();
+  const [style, setStyle] = useState(prefersDark ? dark : (light as any));
 
   useLayoutEffect(() => {
     if (theme === "system") {
@@ -47,18 +47,24 @@ export function Docs() {
             const match = /language-(\w+)/.exec(className || "");
 
             return !inline && match ? (
-              <SyntaxHighlighter
-                style={style as any}
-                language={match[1]}
-                showLineNumbers={true}
-                customStyle={{
-                  borderRadius: "0.75em",
-                  border: "1px solid #bbd8e629",
-                  width: "100%",
-                }}
-                children={String(children).replace(/\n$/, "")}
-                {...props}
-              />
+              <div>
+                <label className="text-sm text-muted-foreground uppercase border rounded px-1 py-0.5 mx-2">
+                  {match[1]}
+                </label>
+                <SyntaxHighlighter
+                  style={style as any}
+                  language={match[1]}
+                  showLineNumbers={true}
+                  customStyle={{
+                    borderRadius: "0.75em",
+                    border: "1px solid #bbd8e629",
+                    width: "100%",
+                    margin: 0,
+                  }}
+                  children={String(children).replace(/\n$/, "")}
+                  {...props}
+                />
+              </div>
             ) : (
               <code
                 className={cn(
