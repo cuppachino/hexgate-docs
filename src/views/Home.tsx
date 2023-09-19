@@ -3,13 +3,13 @@ import { Link } from "@/components/router-link";
 
 export function Home() {
   return (
-    <div className="relative flex flex-col items-center justify-center h-full pb-40 graph-paper">
-      <section className="flex flex-col items-start justify-center gap-2 container w-fit mx-auto">
-        <h1 className="md:text-7xl pb-4">Hexgate</h1>
-        <div className="md:text-lg text-start text-muted-foreground/90 max-w-sm sm:max-w-lg md:max-w-2xl lg:max-w-3xl text-ellipsis mx-auto pl-0.5">
+    <div className="relative flex flex-col items-center justify-center h-full xl:pb-40 graph-paper">
+      <section className="flex flex-col items-start justify-center gap-2 container w-fit mx-auto px-7">
+        <h1 className="lg:text-7xl pb-4">Hexgate</h1>
+        <div className="md:text-lg text-start text-muted-foreground/90 max-w-sm sm:max-w-lg md:max-w-2xl lg:max-w-3xl text-ellipsis mx-auto lg:pl-0.5">
           An LCU API wrapper for
           <TooltipCard
-            className="text-base md:text-lg px-2"
+            className="text-base md:text-lg px-1 sm:px-2"
             text={"League of Legends"}
             name={"Legal Jibber Jabber Policy"}
             img={"riot.ico"}
