@@ -4,6 +4,7 @@
 
 @layer base {
   :root {
+    --background-linear-grads: #ffffff;
     --background: 0 0% 100%;
     --foreground: 0 0% 3.9%;
 
@@ -40,6 +41,7 @@
   }
 
   .dark {
+    --background-linear-grads: #09090b;
     --background: 240 10% 4%;
     --foreground: 0 0% 98%;
 
@@ -95,7 +97,7 @@
 }
 
 .graph-paper::before {
-  mask-image: radial-gradient(transparent 35%, white);
+  mask-image: radial-gradient(transparent 30%, white);
   mask-size: contain;
   mask-repeat: no-repeat;
   mask-mode: alpha;
@@ -167,5 +169,14 @@
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     @apply bg-gradient-to-r from-background via-background/70 to-background/50 shadow-sm dark:shadow-md;
+  }
+
+  .right-shadow {
+    /* full height, WIDE */
+    background-image: linear-gradient(
+      to left,
+      var(--background-linear-grads),
+      transparent 3%
+    );
   }
 }

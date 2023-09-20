@@ -1,6 +1,23 @@
 import { createContext, useEffect, useState } from "react";
 
-type Theme = "dark" | "light" | "system";
+export type Variant = "dark" | "light" | "system";
+
+export type Theme = {
+  variant: Variant;
+  prefersDark: boolean;
+  actual: Omit<Variant, "system">;
+};
+
+const prefersDark = () =>
+  window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+const actual = (variant: Variant) => {
+  if (variant === "system") {
+    return prefersDark() ? "dark" : "light";
+  }
+
+  return variant;
+};
 
 type ThemeProviderProps = {
   children: React.ReactNode;
@@ -9,15 +26,17 @@ type ThemeProviderProps = {
 };
 
 type ThemeProviderState = {
-  prefersDark: boolean;
   theme: Theme;
-  setTheme: (theme: Theme) => void;
+  setTheme: (theme: Variant) => void;
   cycleTheme: () => void;
 };
 
 const initialState: ThemeProviderState = {
-  prefersDark: window.matchMedia("(prefers-color-scheme: dark)").matches,
-  theme: "system",
+  theme: {
+    variant: "system",
+    prefersDark: prefersDark(),
+    actual: prefersDark() ? "dark" : "light",
+  },
   setTheme: () => null,
   cycleTheme: () => null,
 };
@@ -27,48 +46,60 @@ export const ThemeProviderContext =
 
 export function ThemeProvider({
   children,
-  defaultTheme = "system",
+  defaultTheme = {
+    variant: "system",
+    prefersDark: prefersDark(),
+    actual: actual("system"),
+  },
   storageKey = "vite-ui-theme",
   ...props
 }: ThemeProviderProps) {
-  const [theme, setTheme] = useState<Theme>(
-    () => (localStorage.getItem(storageKey) as Theme) || defaultTheme
-  );
-  const [prefersDark, setPrefersDark] = useState<boolean>(false);
+  const [theme, setTheme] = useState<Theme>(() => ({
+    variant:
+      (localStorage.getItem(storageKey) as Variant) || defaultTheme.variant,
+    prefersDark: defaultTheme.prefersDark,
+    actual: actual(
+      (localStorage.getItem(storageKey) as Variant) || defaultTheme.variant
+    ),
+  }));
 
   useEffect(() => {
     const root = window.document.documentElement;
 
     root.classList.remove("light", "dark");
 
-    if (theme === "system") {
+    if (theme.variant === "system") {
       const prefersDark = window.matchMedia(
         "(prefers-color-scheme: dark)"
       ).matches;
       const systemTheme = prefersDark ? "dark" : "light";
 
       root.classList.add(systemTheme);
-      setPrefersDark(prefersDark);
       return;
     }
 
-    root.classList.add(theme);
+    root.classList.add(theme.variant);
   }, [theme]);
 
   const value = {
     theme,
-    prefersDark,
-    setTheme: (theme: Theme) => {
-      localStorage.setItem(storageKey, theme);
-      setTheme(theme);
+    setTheme: (variant: Variant) => {
+      localStorage.setItem(storageKey, variant);
+      setTheme({
+        variant,
+        actual: actual(variant),
+        prefersDark: prefersDark(),
+      });
     },
     cycleTheme: () => {
-      switch (theme) {
-        case "light":
+      switch (theme.variant) {
+        case "light": {
           value.setTheme("system");
           break;
+        }
         case "system":
           value.setTheme("dark");
+
           break;
         case "dark":
           value.setTheme("light");
