@@ -21,7 +21,7 @@ const actual = (variant: Variant) => {
 
 type ThemeProviderProps = {
   children: React.ReactNode;
-  defaultTheme?: Theme;
+  defaultVariant?: Variant;
   storageKey?: string;
 };
 
@@ -46,20 +46,15 @@ export const ThemeProviderContext =
 
 export function ThemeProvider({
   children,
-  defaultTheme = {
-    variant: "system",
-    prefersDark: prefersDark(),
-    actual: actual("system"),
-  },
+  defaultVariant = "system",
   storageKey = "vite-ui-theme",
   ...props
 }: ThemeProviderProps) {
   const [theme, setTheme] = useState<Theme>(() => ({
-    variant:
-      (localStorage.getItem(storageKey) as Variant) || defaultTheme.variant,
-    prefersDark: defaultTheme.prefersDark,
+    variant: (localStorage.getItem(storageKey) as Variant) || defaultVariant,
+    prefersDark: prefersDark(),
     actual: actual(
-      (localStorage.getItem(storageKey) as Variant) || defaultTheme.variant
+      (localStorage.getItem(storageKey) as Variant) || defaultVariant
     ),
   }));
 
