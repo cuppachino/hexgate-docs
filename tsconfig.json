@@ -24,10 +24,9 @@
     /* Other */
     "baseUrl": "./",
     "paths": {
-      "@/*": ["./src/*"],
-      "@docs/*": ["./docs/*"]
+      "@/*": ["./src/*"]
     }
   },
-  "include": ["src", "docs"],
+  "include": ["src", "src/docs/**/*"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

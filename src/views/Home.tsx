@@ -3,7 +3,7 @@ import { Link } from "@/components/router-link";
 
 export function Home() {
   return (
-    <div className="relative flex flex-col items-center justify-center h-full xl:pb-40 graph-paper">
+    <div className="relative flex flex-col items-center justify-center h-full py-10 xl:pb-20 graph-paper">
       <section className="flex flex-col items-start justify-center gap-2 container w-fit mx-auto px-7">
         <h1 className="lg:text-7xl pb-4">Hexgate</h1>
         <div className="md:text-lg text-start text-muted-foreground/90 max-w-sm sm:max-w-lg md:max-w-2xl lg:max-w-3xl text-ellipsis mx-auto lg:pl-0.5">
@@ -40,7 +40,7 @@ export function Home() {
           <Link
             variant={"default"}
             size="lg"
-            to={"/docs"}
+            to={"/docs/introduction"}
             className="relative group dark:bg-primary/95 dark:hover:bg-white dark:hover:text-primary-foreground duration-200"
           >
             <span>Get Started</span>
