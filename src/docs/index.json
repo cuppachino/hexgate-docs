@@ -1,0 +1,47 @@
+[
+  {
+    "kind": "group",
+    "name": "root",
+    "path": "",
+    "children": [
+      {
+        "kind": "group",
+        "name": "getting started",
+        "path": "getting-started",
+        "children": [
+          {
+            "path": "getting-started/hexgate-readme.md",
+            "contentIndex": 77,
+            "title": "README",
+            "order": 1,
+            "description": "Website is under construction",
+            "kind": "page"
+          },
+          {
+            "path": "getting-started/introduction.md",
+            "contentIndex": 72,
+            "title": "Introduction",
+            "order": 0,
+            "description": "How to use Hexgate",
+            "kind": "page"
+          }
+        ]
+      },
+      {
+        "kind": "group",
+        "name": "guide",
+        "path": "guide",
+        "children": [
+          {
+            "path": "guide/authentication.md",
+            "contentIndex": 122,
+            "title": "Authentication",
+            "order": 0,
+            "description": "Extracting authentication tokens from the League of Legends client",
+            "kind": "page"
+          }
+        ]
+      }
+    ]
+  }
+]

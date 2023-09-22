@@ -10,6 +10,9 @@ export default {
     "./app/**/*.{ts,tsx}",
     "./src/**/*.{ts,tsx}",
   ],
+  future: {
+    hoverOnlyWhenSupported: true,
+  },
   theme: {
     extend: {
       screens: {

@@ -86,7 +86,7 @@
   }
 
   h1 {
-    @apply text-3xl md:text-5xl font-bold text-foreground dark:text-foreground leading-tight tracking-tight;
+    @apply text-3xl sm:text-4xl md:text-5xl font-bold text-foreground dark:text-foreground leading-tight tracking-tight;
   }
 }
 
@@ -124,7 +124,7 @@
 }
 
 .dark .graph-paper::before {
-  mask-image: radial-gradient(transparent 35%, white 200%);
+  mask-image: radial-gradient(transparent 35%, white 180%);
   background-size: 80px 80px;
 }
 
