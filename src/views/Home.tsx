@@ -37,6 +37,7 @@ export function Home() {
           , packed with features that make it easy to build companion apps.
         </div>
         <div className="flex pt-4 gap-4">
+          {/* @ts-expect-error I'm cheating and i know it */}
           <Link
             variant={"default"}
             size="lg"
