@@ -19,7 +19,7 @@ function Sidebar({
   const [ref, { width }] = useElementSize<HTMLDivElement>();
 
   const { breakpoint } = useBreakpoint(BREAKPOINTS, "mobile");
-  const { isOpen, open, close, toggle } = useSidebarStore();
+  const { isOpen, open, close } = useSidebarStore();
   const [styles, _api] = useSpring(
     () =>
       isOpen
@@ -146,21 +146,6 @@ function DocLinks() {
 }
 
 import { useSidebarStore } from "@/stores/sidebar-store";
-import { MenuIcon } from "lucide-react";
-
-function ToggleDocSidebar() {
-  const toggle = useSidebarStore((s) => s.toggle);
-  return (
-    <Button
-      className="absolute -left-5 top-20 px-2"
-      onClick={toggle}
-      variant="ghost"
-      size="sm"
-    >
-      <MenuIcon className="h-5 stroke-current" />
-    </Button>
-  );
-}
 
 export default function View() {
   return (
