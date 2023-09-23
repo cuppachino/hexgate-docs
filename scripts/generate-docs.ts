@@ -15,6 +15,13 @@ const docsRoute = new Route({
 import Markdown from "@/views/Markdown";
 `;
 
+/**
+ * Replaces all non-alphanumeric characters with an underscore.
+ */
+function stringToVariableName(str: string) {
+  return str.replace(/[^a-zA-Z0-9]/g, "_");
+}
+
 const createRoute = (
   name: string,
   importPath: string,
@@ -22,7 +29,7 @@ const createRoute = (
   bodyBegin: number,
   description: string | undefined
 ) => {
-  const variableName = name.replace(/-/g, "_").replace(" ", "_").toLowerCase();
+  const variableName = stringToVariableName(name).toLowerCase();
   const routeName = `${variableName}Route`;
   return [
     `

@@ -13,13 +13,11 @@ export function Toggle() {
       variant="outline"
       size="sm"
       onClick={cycleTheme}
-      className={cn("select-none transition-all duration-150 ", {
+      className={cn("select-none transition-all duration-150 font-normal", {
         "w-[4.5rem]": variant === "system",
         "w-10": variant !== "system",
       })}
     >
-      {/* {theme === "system" && theme} */}
-
       <span
         className={cn("absolute transition-opacity duration-100", {
           "scale-50 opacity-0": variant !== "system",

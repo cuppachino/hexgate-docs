@@ -9,19 +9,15 @@ export function Root() {
     <div className="absolute inset-0">
       <header className="border-b h-14 glass fixed top-0 inset-x-0 z-50 overflow-clip">
         <div className="relative px-2 gap-2 h-full w-full flex items-center justify-start mx-auto max-w-screen-2xl">
-          <div className="dbg absolute inset-y-0 my-auto h-44 -right-4 w-8 bg-background blur -z-10" />
-          <Link
-            to="/"
-            variant={"ghost"}
-            className="font-light leading-2 lg:text-base"
-          >
+          <div className="absolute inset-y-0 my-auto h-44 -right-4 w-8 bg-background blur -z-10" />
+          <Link to="/" variant={"ghost"} className="font-light leading-2">
             Hexgate
           </Link>
           <ToggleDocSidebar />
           <div className="flex w-full h-full items-center justify-end gap-2">
-            <Link to="/api" variant={"ghost"} className="font-light leading-2">
+            {/* <Link to="/api" variant={"ghost"} className="font-light leading-2">
               API
-            </Link>
+            </Link> */}
             <Link
               to={"/docs/introduction" as "/docs"}
               variant={"ghost"}

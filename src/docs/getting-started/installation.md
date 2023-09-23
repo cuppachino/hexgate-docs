@@ -8,18 +8,18 @@ Install Hexgate using your favorite package manager.
 
 #### PNPM
 
-```shell
+```bash
 pnpm add hexgate
 ```
 
 #### NPM
 
-```shell
+```bash
 npm i hexgate
 ```
 
 #### Bun
 
-```shell
+```bash
 bun add hexgate
 ```
