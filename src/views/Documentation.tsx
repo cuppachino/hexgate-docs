@@ -1,9 +1,7 @@
 import { Link } from "@/components/router-link";
 import { Button } from "@/components/ui/button";
-import { useElementSize } from "@/hooks/use-element-size";
 import { cn } from "@/lib/utils";
 import { ClassName, PropType } from "@/types";
-import { a, config, useSpring } from "@react-spring/web";
 import { Outlet } from "@tanstack/react-router";
 import { ArrowRightToLine } from "lucide-react";
 import { PropsWithChildren, useEffect } from "react";
@@ -11,54 +9,14 @@ import { useBreakpoint } from "use-breakpoint";
 
 const BREAKPOINTS = { mobile: 640, desktop: 1024 };
 
-function Sidebar({
-  className,
-  children,
-  ...props
-}: PropsWithChildren<PropType<"div">>) {
-  const [ref, { width }] = useElementSize<HTMLDivElement>();
+import { useSidebarStore } from "@/stores/sidebar-store";
 
+export function Sidebar({
+  children,
+  className,
+}: PropsWithChildren<PropType<"div">>) {
   const { breakpoint } = useBreakpoint(BREAKPOINTS, "mobile");
   const { isOpen, open, close } = useSidebarStore();
-  const [styles, _api] = useSpring(
-    () =>
-      isOpen
-        ? {
-            to: async (next) => {
-              await next({ width });
-              await next({
-                transform: "translateX(0%)",
-                opacity: 1,
-              });
-              await next({ config: { frequency: 0.25 } });
-            },
-            from: {
-              transform: "translateX(-100%)",
-              opacity: 0,
-              width,
-            },
-          }
-        : {
-            to: async (next) => {
-              await next({
-                transform: "translateX(-100%)",
-                opacity: 0,
-              });
-              await next({
-                width: 0,
-              });
-              await next({
-                config: config.default,
-              });
-            },
-            from: {
-              transform: "translateX(0%)",
-              width: 0,
-            },
-          },
-    [isOpen, breakpoint, width]
-  );
-
   useEffect(() => {
     if (breakpoint === "desktop") {
       open();
@@ -66,22 +24,19 @@ function Sidebar({
       close();
     }
   }, [breakpoint, close, open]);
-
-  useEffect(() => {}, []);
-
   return (
-    <a.aside {...props} className={"relative flex"} style={styles}>
-      <div
-        ref={ref}
-        className={cn("flex w-full h-full whitespace-nowrap", className)}
-      >
-        {children}
-      </div>
-    </a.aside>
+    <aside
+      className={cn("transition-all duration-200 ease-in-out", className, {
+        "w-0 -translate-x-full opacity-0 px-0 scale-x-0": !isOpen,
+        "w-48 md:w-64 translate-x-0 scale-x-100": isOpen,
+      })}
+    >
+      {children}
+    </aside>
   );
 }
 
-function ToggleSidebarButton({
+export function ToggleSidebarButton({
   children,
   className,
   classNameOpen,
@@ -126,6 +81,7 @@ function ToggleSidebarButton({
 }
 
 import { RoutePath, docsLinks } from "@/routes/docs-links";
+import { ToggleDocSidebar } from "@/features/siderbar/toggle-sidebar-top";
 
 function DocLinks() {
   return (
@@ -145,30 +101,16 @@ function DocLinks() {
   );
 }
 
-import { useSidebarStore } from "@/stores/sidebar-store";
-
 export default function View() {
   return (
     <div className="relative flex w-full h-full max-w-screen-2xl mx-auto">
-      <Sidebar className="flex flex-col justify-between p-5 pt-20 border-r w-fit">
+      <Sidebar className="sticky left-0 inset-y-0 flex flex-col justify-between gap-4 p-5 pt-[4.5rem] border-r z-10 will-change-auto">
         <DocLinks />
-        <ToggleSidebarButton arrowClassName="-rotate-180">
+        <ToggleDocSidebar className="w-full justify-end flex-row-reverse">
           Minimize
-        </ToggleSidebarButton>
+        </ToggleDocSidebar>
       </Sidebar>
-      <section className="relative h-full w-full p-8 pt-20 overflow-auto">
-        {/* <section className="relative h-full w-full p-8 pt-20 overflow-auto">
-        <div className="sticky inline-flex items-center justify-start gap-2">
-          <ToggleSidebarButton
-            size={"sm"}
-            className="w-fit -ml-6"
-            classNameOpen="pointer-events-none select-none"
-            arrowClassNameOpen="opacity-0 w-0 -translate-x-10"
-            arrowClassNameClose="opacity-100 w-5"
-          />
-        </div>
-        <Outlet />
-      </section> */}
+      <section className="relative flex flex-col w-full h-full mx-auto p-8 pt-20 overflow-auto will-change-auto ">
         <Outlet />
       </section>
     </div>
@@ -199,9 +141,9 @@ function ListNode({
           from={"docs" as "/"}
           variant={"link"}
           activeProps={{
-            className: "font-semibold text-primary",
+            className: "font-semibold text-primary underline",
           }}
-          className="text-muted-foreground"
+          className="whitespace-nowrap text-muted-foreground transition duration-150"
           to={to as any}
         >
           {name}
@@ -211,8 +153,10 @@ function ListNode({
   }
 
   return (
-    <section className="flex flex-col gap-4 pr-5">
-      <h3 className="font-semibold capitalize">{name}</h3>
+    <section className="flex flex-col gap-2 pr-5">
+      <h3 className="whitespace-nowrap text-xs font-semibold capitalize text-secondary-foreground">
+        {name}
+      </h3>
       <ul {...props} className={cn("flex flex-col", className)}>
         {children}
       </ul>

@@ -39,10 +39,10 @@ export const docsLinks = [
         "description": "How to contribute to Hexgate"
       },
       {
-        "name": "RAW README",
+        "name": "Hexgate (README)",
         "importPath": "getting-started/hexgate-readme.md",
         "path": "hexgate-readme",
-        "bodyBegin": 82,
+        "bodyBegin": 88,
         "group": "getting started",
         "order": 99,
         "description": "Website is under construction"

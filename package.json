@@ -16,7 +16,6 @@
     "@radix-ui/react-hover-card": "^1.0.6",
     "@radix-ui/react-slot": "^1.0.2",
     "@radix-ui/react-tooltip": "^1.0.6",
-    "@react-spring/web": "^9.7.3",
     "@tanstack/react-router": "^0.0.1-beta.191",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",

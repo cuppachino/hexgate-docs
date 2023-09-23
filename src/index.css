@@ -55,7 +55,7 @@
     --primary-foreground: 0 0% 9%;
 
     --secondary: 0 0% 14.9%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary-foreground: 0 0% 92.1%;
 
     --muted: 0 0% 14.9%;
     --muted-foreground: 0 0% 63.9%;
@@ -97,7 +97,7 @@
 }
 
 .graph-paper::before {
-  mask-image: radial-gradient(transparent 30%, white);
+  mask-image: radial-gradient(transparent 28%, white);
   mask-size: contain;
   mask-repeat: no-repeat;
   mask-mode: alpha;
@@ -124,8 +124,7 @@
 }
 
 .dark .graph-paper::before {
-  mask-image: radial-gradient(transparent 35%, white 180%);
-  background-size: 80px 80px;
+  mask-image: radial-gradient(transparent, transparent);
 }
 
 @keyframes wobble {

@@ -1,10 +1,8 @@
 ---
-title: RAW README
+title: Hexgate (README)
 description: Website is under construction
 order: 99
 ---
-
-# Hexgate
 
 [Hexgate](https://www.npmjs.com/package/hexgate) is a work-in-progress LCU suite. It is **not** endorsed by Riot Games. If you have any questions, feel free to join the [cuppachino discord](https://discord.gg/HEd72YnzVq).
 
@@ -14,15 +12,15 @@ Please refer to the [wiki](https://github.com/cuppachino/hexgate/wiki) for more 
 
 Add it to your own project using your favorite package manager.
 
-```shell
+```bash
 pnpm add hexgate
 ```
 
-```shell
+```bash
 npm i hexgate
 ```
 
-```shell
+```bash
 yarn add hexgate
 ```
 
@@ -186,7 +184,7 @@ const client = new Connection({
 ```
 
 <p align='center'>
-  <img src="connection-diagram.png" width=600/>
+  <img src="/connection-diagram.png" width=600/>
 </p>
 
 ## Recipe API
@@ -352,6 +350,6 @@ client.connect();
 
 This package uses [pnpm](https://pnpm.io) to manage dependencies. If you don't have pnpm, it can be installed globally using `npm`, `yarn`, `brew`, or `scoop`, as well as some other options. Check out the [pnpm documentation](https://pnpm.io/installation) for more information.
 
-```ps1
+```bash
 pnpm i
 ```

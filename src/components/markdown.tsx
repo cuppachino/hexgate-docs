@@ -1,13 +1,21 @@
 import dark from "../style/dark-theme";
 import light from "../style/light-bold";
 import ReactMarkdown from "react-markdown";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+// import { PrismAsyncLight as SyntaxHighlighter } from "react-syntax-highlighter";
+import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
 import remarkGfm from "remark-gfm";
 
 import { useTheme } from "../components/theme/hook";
 import { cn } from "../lib/utils";
 import { useLayoutEffect, useState } from "react";
 import rehypeRaw from "rehype-raw";
+
+import ts from "react-syntax-highlighter/dist/esm/languages/prism/typescript";
+import tsx from "react-syntax-highlighter/dist/esm/languages/prism/tsx";
+import ps1 from "react-syntax-highlighter/dist/esm/languages/prism/powershell";
+SyntaxHighlighter.registerLanguage("jsx", ts);
+SyntaxHighlighter.registerLanguage("jsx", tsx);
+SyntaxHighlighter.registerLanguage("ps1", ps1);
 
 export function Markdown({ markdown }: { markdown: string }) {
   const {
@@ -21,7 +29,7 @@ export function Markdown({ markdown }: { markdown: string }) {
   return (
     <ReactMarkdown
       className="w-full prose dark:prose-invert
-                text-lg text-muted-foreground
+                text-foreground
                 max-w-screen-2xl
                 prose-pre:bg-transparent prose-pre:p-0
                 prose-code:before:hidden prose-code:after:hidden

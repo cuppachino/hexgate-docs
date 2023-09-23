@@ -19,11 +19,11 @@ const contributingRoute = new Route({
 });
 
 
-import raw_readme from "@/docs/getting-started/hexgate-readme.md?raw";
-const raw_readmeRoute = new Route({
+import hexgate__readme_ from "@/docs/getting-started/hexgate-readme.md?raw";
+const hexgate__readme_Route = new Route({
   getParentRoute: () => docsRoute,
   path: "hexgate-readme",
-  component: Markdown(raw_readme.slice(82), "RAW README", "Website is under construction"),
+  component: Markdown(hexgate__readme_.slice(88), "Hexgate (README)", "Website is under construction"),
 });
 
 
@@ -57,5 +57,5 @@ const authenticationRoute = new Route({
   path: "authentication",
   component: Markdown(authentication.slice(122), "Authentication", "Extracting authentication tokens from the League of Legends client"),
 });
-docsRoute.addChildren([contributingRoute, raw_readmeRoute, installationRoute, introductionRoute, quickstartRoute, authenticationRoute]);
+docsRoute.addChildren([contributingRoute, hexgate__readme_Route, installationRoute, introductionRoute, quickstartRoute, authenticationRoute]);
 export { docsRoute };
