@@ -23,7 +23,7 @@ export function ToggleDocSidebar({
       size="sm"
     >
       {children}
-      <div className="relative aspect-square h-5">
+      <a className="relative aspect-square h-5" aria-label="toggle-sidebar">
         <MenuIcon
           className={cn(
             "absolute w-full h-full stroke-current scale-90 transition",
@@ -42,7 +42,7 @@ export function ToggleDocSidebar({
             }
           )}
         />
-      </div>
+      </a>
     </Button>
   );
 }

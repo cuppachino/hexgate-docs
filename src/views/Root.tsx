@@ -27,12 +27,13 @@ export function Root() {
             </Link>
 
             <Link
+              aria-label="Github"
               className="w-4 box-content"
               external={true}
               to="https://github.com/cuppachino/hexgate/"
               variant={"ghost"}
             >
-              <Github className="dark:invert scale-150" />
+              <Github className="dark:invert scale-150 select-none" />
             </Link>
 
             <Toggle />
