@@ -32,7 +32,7 @@ In Linux:
 ps -Af | grep LeagueClient.ex
 ```
 
-In both cases we're asking your operating system for a list of running processes and their [command-line arguments](https://en.wikipedia.org/wiki/Command-line_interface#Arguments) and then filtering out anything unrelated to the client. Finally we extract the following credentials from the string/buffer:
+In all cases we're asking your operating system for a list of running processes and their [command-line arguments](https://en.wikipedia.org/wiki/Command-line_interface#Arguments) and then filtering out anything unrelated to the client. Finally we extract the following credentials from the string/buffer:
 
 | Argument                | Alias               | Type     | Description                                                                 |
 | :---------------------- | :------------------ | :------- | :-------------------------------------------------------------------------- |
