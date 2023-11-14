@@ -20,10 +20,16 @@ On Windows systems, we run this powershell script:
 Get-CimInstance -className Win32_Process | Where-Object Name -Like "LeagueClientUx*" | Select-Object CommandLine -First 1 | Format-List
 ```
 
-And on unix systems, we run this bash script:
+In MacOs:
 
 ```bash
 ps -A | grep LeagueClientUx
+```
+
+In Linux:
+
+```bash
+ps -Af | grep LeagueClient.ex
 ```
 
 In both cases we're asking your operating system for a list of running processes and their [command-line arguments](https://en.wikipedia.org/wiki/Command-line_interface#Arguments) and then filtering out anything unrelated to the client. Finally we extract the following credentials from the string/buffer:
